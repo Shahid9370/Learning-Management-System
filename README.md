@@ -1,70 +1,135 @@
-# Getting Started with Create React App
+Here’s the updated **README.md** file with a note about the zipped `node_modules` folders:
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+---
 
-## Available Scripts
+# **Online Learning System**
 
-In the project directory, you can run:
+An online platform for students and admins to manage learning resources efficiently. Built with **React.js** for the frontend and **Node.js** with **MongoDB** for the backend.
 
-### `npm start`
+---
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+## **Features**
+- **Admin Dashboard**: Manage courses, users, and monitor activities.
+- **Student Dashboard**: Access courses, view learning materials, and track progress.
+- **Role-Based Authentication**: Different functionalities for Admins and Students.
+- **Secure Login & Registration**: Role selection during login with data validation.
+- **Technology Stack**: 
+  - **Frontend**: React.js, CSS
+  - **Backend**: Node.js, Express.js
+  - **Database**: MongoDB
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+---
 
-### `npm test`
+## **Folder Structure**
+```plaintext    
+project/
+├── backend/
+│   ├── models/           # Database models (User, Admin)
+│   ├── controllers/      # Logic for API routes
+│   ├── routes/           # API endpoints
+│   ├── server.js         # Main backend file
+│   └── .env              # Environment variables
+├── frontend/
+│   ├── src/              # React components and pages
+│   ├── public/           # Static files
+│   ├── package.json      # Frontend dependencies
+│   └── .env              # Environment variables
+└── README.md             # Documentation
+```
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+---
 
-### `npm run build`
+## **Important Note**
+**The `node_modules` folders for both the frontend and backend have been zipped separately** to reduce the project size.  
+- If you're working with this project, **make sure to unzip the `node_modules` folder** for both `frontend` and `backend` before running the project.
+- If the zipped `node_modules` folders are missing, you can install the dependencies using the `npm install` command in both directories.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+---
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+## **Prerequisites**
+Make sure the following software is installed on your system:
+- Node.js (v16+ recommended)
+- MongoDB (local or cloud database)
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+---
 
-### `npm run eject`
+## **Installation Guide**
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+### 1. **Clone the Repository**
+```bash    
+git clone <repository-url>
+cd project
+```
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+### 2. **Backend Setup**
+1. Navigate to the backend folder:
+   ```bash  
+   cd backend
+   ```
+2. If `node_modules` is zipped, unzip it, or install dependencies:
+   ```bash  
+   npm install
+   ```
+3. Create a `.env` file in the backend folder:
+   ```plaintext  
+   PORT=5000
+   MONGO_URI=<Your MongoDB Connection String>
+   JWT_SECRET=<Your JWT Secret>
+   ```
+4. Start the backend server:
+   ```bash                    
+   npm start
+   ```
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+### 3. **Frontend Setup**
+1. Navigate to the frontend folder:
+   ```bash                        
+   cd frontend
+   ```
+2. If `node_modules` is zipped, unzip it, or install dependencies:
+   ```bash                    
+   npm install
+   ```
+3. Create a `.env` file in the frontend folder:
+   ```plaintext                    
+   REACT_APP_API_URL=http://localhost:5000/api
+   ```
+4. Start the React development server:
+   ```bash                      
+   npm start
+   ```
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+---
 
-## Learn More
+## **How to Use**
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+### **Admin Role**
+1. Register as an admin using a separate registration route (to be provided by the developer).
+2. Login and manage students, courses, and monitor activities.
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+### **Student Role**
+1. Register as a student through the main registration page.
+2. Login and access learning materials and track your progress.
 
-### Code Splitting
+---
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+## **Key API Routes**
 
-### Analyzing the Bundle Size
+### **Authentication**
+- **POST** `/api/auth/register` - Register user
+- **POST** `/api/auth/login` - Login user
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+### **Admin Functions**
+- **GET** `/api/admin/users` - Fetch all users
+- **POST** `/api/admin/course` - Create a course
 
-### Making a Progressive Web App
+### **Student Functions**
+- **GET** `/api/student/courses` - View available courses
+- **GET** `/api/student/progress` - Track progress
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+---
 
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+## **Future Enhancements**
+- Add video tutorials for courses.
+- Implement payment gateway integration.
+- Add notifications for deadlines and updates.
